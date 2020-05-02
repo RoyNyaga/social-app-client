@@ -22,19 +22,19 @@ export default class home extends React.Component {
   }
 
   render () {
-
+    console.log(this.state.screams)
     var recentScreamsMarkup = this.state.screams ? (
-      this.state.screams.map(scream => <Scream scream={scream}>{scream.body}</Scream>)
+      this.state.screams.map(scream => <Scream key={scream.screamId} scream={scream}/>)
       ) : <p>Loading...</p>
     return (
-      <Grid container spacing={10}>
-        <Grid item sm={8} xs={12}>
-          {recentScreamsMarkup}
-        </Grid>
-        <Grid item sm={4} xs={12}>
-          <p> Profile </p>
-        </Grid>
-      </Grid>
+     <div className="row">
+      <div className="col-md-8">
+        {recentScreamsMarkup}
+      </div>
+      <div className="col-md-4">
+        <h1>Other section</h1>
+      </div>
+     </div>
     )
   }
 }
